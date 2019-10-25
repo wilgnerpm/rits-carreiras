@@ -60,7 +60,18 @@ class CarreiraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+        $carreira = \App\Carreira::with('candidato')->where('id', $id)->get();
+         if ($carreira) {
+            return response()->json([
+                        'success' => true,
+                        'carreira' => $carreira
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, carreira could not be'
+                            ], 500);
+        };
     }
 
     /**

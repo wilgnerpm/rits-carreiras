@@ -9,4 +9,8 @@ class Carreira extends Model
     protected $fillable = [
         'carreira', 'localizacao', 'open',
     ];
+      public function candidato() {
+        return $this->hasMany('App\Candidato');
+    }
 }
+
