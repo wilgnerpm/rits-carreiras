@@ -34,7 +34,18 @@ class CandidatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+         $candidato= \App\Candidato::create($request->all());
+           if ($candidato) {
+            return response()->json([
+                        'success' => true,
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, candidato could not be added'
+                            ], 500);
+        };
     }
 
     /**
@@ -45,7 +56,18 @@ class CandidatoController extends Controller
      */
     public function show($id)
     {
-        //
+        $candidato= \App\Candidato::find($id);
+         if ($candidato) {
+            return response()->json([
+                        'success' => true,
+                'candidato'=>$candidato,
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, candidato  not be '
+                            ], 500);
+        };
     }
 
     /**
