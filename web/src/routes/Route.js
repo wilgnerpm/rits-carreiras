@@ -8,22 +8,23 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-const { signed } = false;
+const { signed } = true;
 
-  if (!signed && isPrivate) {
-    return <Redirect to="/" />;
-  }
+ // if (!signed && isPrivate) {
+  //  return <Redirect to="/" />;
+  //}
 
   // Se estiver logado e a rota nao for privada, redireciona para o dashboard
-  if (signed && !isPrivate) {
-    return <Redirect to="/dashboard" />;
-  }
-  const Layout = signed ? DashboardLayout : DefaultLayout;
+ // if (signed && isPrivate) {
+   // return <Redirect to="/dashboard" />;
+  //}
+  const Layout =  isPrivate ? DashboardLayout : DefaultLayout;
   return (
     <Route
       {...rest}
       render={props => (
         <Layout>
+
           <Component {...props} />
         </Layout>
       )}

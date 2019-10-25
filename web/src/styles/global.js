@@ -74,6 +74,8 @@ html{
     }
 }
 
+
+
 /* session */
 .session-backgroud{
   background-image: url(${image1}) ;

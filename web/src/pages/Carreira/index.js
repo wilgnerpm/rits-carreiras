@@ -3,7 +3,6 @@ import {  Form, FileInput} from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
 import  Select from '../../components/Select'
 import { ContainerBackgroud, FormCanidatese } from './styles';
-import { Container, Row, Column } from '../../components/Grid';
 import { MdCheckCircle, MdAttachFile } from 'react-icons/md';
 export default function Carreiras() {
   const options = [
@@ -81,9 +80,9 @@ Procuramos alguém que:
 
 
     </ContainerBackgroud>
-       <Container >
-         <Row>
-          <Column mobile={12} table={12} desktop={12} >
+       <div >
+         <div>
+          <div mobile={12} table={12} desktop={12} >
             <FormCanidatese>
                  <Form className=''>
                    <h2 id='candidate-se'>Informações pessoais</h2>
@@ -112,9 +111,9 @@ Procuramos alguém que:
     </Form>
             </FormCanidatese>
 
-          </Column>
-          </Row>
-       </Container>
+          </div>
+          </div>
+       </div>
        </>
   );
 }
