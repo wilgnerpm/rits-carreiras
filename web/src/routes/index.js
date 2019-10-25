@@ -5,15 +5,15 @@ import Carreiras from '../pages/Carreiras';
 import Carreira from '../pages/Carreira';
 import SigIn from '../pages/SigIn';
 import Dashboard from '../pages/Dashboard';
-
+import DCarreira from '../pages/Dashboard/Carreiras';
 export default function Routes() {
   return (
     <Switch>
       <Route path="/carreiras" exact component={Carreiras} />
       <Route path="/carreiras/:url" component={Carreira} />
       <Route path="/sigin"  component={SigIn} />
-      <Route path="/dashboard"  isPrivate  component={Dashboard} />
-
+      <Route path="/dashboard" exact isPrivate  component={Dashboard} />
+      <Route path="/dashboard/carreira/:id"   isPrivate  component={DCarreira} />
     </Switch>
   );
 }

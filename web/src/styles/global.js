@@ -96,9 +96,9 @@ color:#4EEF61
 }
 }
 /* **/
-.button-green {
+.btn {
       margin: 5px 0 0;
-      background: #4EEF61;
+
       font-weight: bold;
       color: #2E2236;
       border: 0;
@@ -109,9 +109,19 @@ color:#4EEF61
       a{
         color: #2E2236;
       }
+
     }
+    .btn-green{
+background: #4EEF61;
+      }
+    .btn-block{
+width:100%;
+      }
 
-
+      .btn-transparent {
+        color:#fff;
+        background: none;
+      }
     /* page carreiras */
     .carreiras{
       max-width:640px;
@@ -187,6 +197,25 @@ margin-top:30px;
 
   }
 }
+
+
+
+
+/*session-dashboard */
+.card{
+  .card-header{
+    h1{
+      font-size:30px;
+    color:#fff;
+    text-transform:uppercase
+    }
+  }
+  .card-body{
+    padding:15px 0px;
+  }
+}
+
+
 `;
 
 
