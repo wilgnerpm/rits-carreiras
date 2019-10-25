@@ -10,15 +10,18 @@ class SessionController extends Controller
    public function login()
     {
         $credentials = request(['email', 'password']);
-         if (! $token = Auth::guard('api')->attempt($credentials)) {
-               return response()->json(['error' => 'Unauthorized'], 401);
+       $jwt_token = null;
+ 
+        if (!$jwt_token = JWTAuth::attempt($credentials)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid Email or Password',
+            ], 401);
         }
+ 
         return response()->json([
             'success' => true,
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'user'=>auth()->user(),
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'token' => $jwt_token,
         ]);
     }
 

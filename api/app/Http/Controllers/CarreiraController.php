@@ -3,27 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Carreira;
 
-class CarreiraController extends Controller
-{
+class CarreiraController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function index() {
+       $carreiras = \App\Carreira::all();
+       if ($carreiras) {
+            return response()->json([
+                        'success' => true,
+                        'carreiras' => $carreiras
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, carreira could not be added'
+                            ], 500);
+        };
+        
     }
 
     /**
@@ -32,9 +34,23 @@ class CarreiraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $this->validate($request, [
+            'carreira' => 'required',
+            'localizacao' => 'required',
+        ]);
+        $carreira= \App\Carreira::create($request->all());
+        if ($carreira) {
+            return response()->json([
+                        'success' => true,
+                        'carreira' => $carreira
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, carreira could not be added'
+                            ], 500);
+        };
     }
 
     /**
@@ -43,19 +59,7 @@ class CarreiraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -66,9 +70,13 @@ class CarreiraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $carreira = \App\Carreira::where('id', $id)->update($request->all());
+   
+        return response()->json([
+                        'success' => true,
+                        'carreira' => \App\Carreira::find($id)
+            ]);
     }
 
     /**
@@ -77,8 +85,12 @@ class CarreiraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        $carreira = \App\Carreira::find($id)->delete();
+         return response()->json([
+                        'success' => true
+  
+            ]);
     }
+
 }
