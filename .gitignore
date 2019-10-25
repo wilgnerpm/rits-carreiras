@@ -1,0 +1,5 @@
+#api
+api/vendor/*
+#docker
+docker/data/postgres/*
+web/node_modules/*
