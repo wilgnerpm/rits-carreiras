@@ -94,21 +94,7 @@ class CandidatoController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        $candidato = \App\Candidato::find($id);
-        $candidato->classificado = 'open';
-        $candidato->save();
-        if ($candidato) {
-            return response()->json([
-                        'success' => true,
-            ]);
-        } else {
-            return response()->json([
-                        'success' => false,
-                        'message' => 'Sorry, candidato could not be added'
-                            ], 500);
-        };
-    }
+   
 
     /**
      * Remove the specified resource from storage.

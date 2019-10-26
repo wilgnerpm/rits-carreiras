@@ -1,8 +1,14 @@
 import React from 'react';
-
 import { Container } from './styles';
-import { MdFavorite, MdClear } from 'react-icons/md';
-export default function CandidatoInfo({candidato}) {
+import api from '../../../../services/api'
+export default function CandidatoInfo({candidato, callbackParent}) {
+
+ async function handleClassificado(classificado){
+  const response = await api.get(`admin/candidato/${candidato.id}`,{classificado:classificado})
+  callbackParent(candidato);
+  console.log(response)
+  }
+
   return (
     <Container>
      <h1>{candidato.nome_completo}</h1>
@@ -18,10 +24,10 @@ export default function CandidatoInfo({candidato}) {
 {candidato.resumo}
        </span></p>
        <div>
-         <button className='btn btn-red'>
+         <button className='btn btn-red' onClick={()=>handleClassificado(false)}>
          NUDE
          </button>
-         <button className='btn btn-green'>
+         <button className='btn btn-green' onClick={()=>handleClassificado(true)}>
         LIKE
          </button>
        </div>

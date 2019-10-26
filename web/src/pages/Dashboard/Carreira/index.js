@@ -21,9 +21,11 @@ export default function Carreira(props) {
 
   function candidatoSelecionado(candidato) {
     setCandidato(candidato)
-
 }
-console.log(candidato);
+
+function handleUpdateCandidato(candidato) {
+  setCandidato(false)
+}
     return (
       <Container>
       <div className='card'>
@@ -46,7 +48,7 @@ state: { data: carreiraAtual }
 
     </div>
 
-{candidato?(<CandidatoInfo candidato={candidato} />):(   <div className='card'>
+{candidato?(<CandidatoInfo candidato={candidato} callbackParent={(candidato)=>handleUpdateCandidato(candidato)} />):(   <div className='card'>
 <div className="card-header mt-10">
  <h2>NOVOS CANDIDATOS</h2>
 </div>

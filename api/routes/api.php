@@ -24,9 +24,9 @@ Route::group(['prefix' => 'admin','middleware' => 'auth.jwt'], function () {
     Route::post('carreira', 'CarreiraController@store');
     Route::put('carreira/{id}', 'CarreiraController@update');
     Route::delete('carreira/{id}', 'CarreiraController@destroy');
-    
-       Route::get('candidato/{id}', 'CandidatoController@show');
-    
+    //candidato 
+    Route::get('candidato/{id}', 'CandidatoController@show');
+    Route::put('candidato/{id}', 'ClassificadoController@update');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
