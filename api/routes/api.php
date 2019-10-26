@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::post('sigin', 'SessionController@login');
 Route::post('signup', 'UserController@store');
 Route::post('candidato', 'CandidatoController@store');
+Route::get('carreiras', 'CarreiraPublicController@index');
 
 Route::group(['prefix' => 'admin','middleware' => 'auth.jwt'], function () {
     Route::get('carreira', 'CarreiraController@index');
