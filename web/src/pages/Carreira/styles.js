@@ -72,7 +72,7 @@ h2{
   margin-bottom:50px;
   margin-top:30px;
 }
-.btn {
+.btn-upload {
   border: 2px solid #4EEF61;
   color: #2E2236;
   background-color: white;

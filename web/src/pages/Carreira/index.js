@@ -27,7 +27,7 @@ Natal/RN - Brasil
 
 
             <div className='candidate'>
- <a href="#candidate-se" className="button-green ">Candidate-se</a>
+ <a href="#candidate-se" className="btn btn-green">Candidate-se</a>
             </div>
 
            <div className="carreira-detalhes">
@@ -101,11 +101,11 @@ Procuramos alguém que:
   <Input name="pretensao_salarial" label='PRETENSÃO SALARIAL' type="text" value='R$' placeholder="R"/>
  <h2>Anexe seu currículo em PDF ou DOC</h2>
 <div class="upload-btn-wrapper">
-  <button class="btn">
+  <button class="btn-upload ">
     <MdAttachFile color="#2E2236" size={14} /> Escolha um arquivo</button>
 <FileInput name="attach"  id="file"  />
 </div>
-  <button className='button-green' type="submit" >
+<button className="btn btn-green" type="submit" >
          ENVIAR
         </button>
     </Form>

@@ -19,7 +19,7 @@ Vagas em aberto
 <span>Natal - RN, Brasil</span><h2>Desenvolvedor Frontend</h2>
 </div>
 <div className="carreira-button">
-<Link to="/carreiras/testexs" className="button-green">Canidatar-se</Link>
+<Link to="/carreiras/testexs" className="btn btn-green">Canidatar-se</Link>
 </div>
 </div>
       </div>

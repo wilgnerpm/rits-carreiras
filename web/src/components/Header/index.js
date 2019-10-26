@@ -12,7 +12,7 @@ export default function Header() {
         <nav className='header-nav'>
           <Link to="/dashboard">A RITS</Link>
           <Link to="/dashboard">NOSSOS VALORES</Link>
-          <Link to="/carreiras" className="button-green">VAGAS ABERTAS</Link>
+          <Link to="/carreiras" className="btn btn-green">VAGAS ABERTAS</Link>
         </nav>
       </header>
     </div>

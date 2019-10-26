@@ -26,7 +26,7 @@ export default function SignIn() {
         <h1>Login</h1>
         <Input name="email" label="E-mail" type="text"  placeholder="E-mail"/>
         <Input name="password" label="E-mail" type="password" placeholder="Sua senha" />
-        <button className='button-green' type="submit" disabled={loading}>
+        <button className="btn btn-green" type="submit" disabled={loading}>
           {loading ? 'Carregando...' : 'Acessar'}
         </button>
       </Form>

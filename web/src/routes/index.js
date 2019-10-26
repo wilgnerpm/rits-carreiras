@@ -10,6 +10,7 @@ import DCarreiraEditar from '../pages/Dashboard/Carreira/Editar';
 export default function Routes() {
   return (
     <Switch>
+        <Route path="/" exact component={Carreiras} />
       <Route path="/carreiras" exact component={Carreiras} />
       <Route path="/carreiras/:url" component={Carreira} />
       <Route path="/sigin"  component={SigIn} />
