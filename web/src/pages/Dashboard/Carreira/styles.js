@@ -21,25 +21,5 @@ h3{
       font-size:16px;
       margin-bottom:10px;
 }
-.candidate{
-  width:100%;
-  background:#fff;
-  margin: 0px auto;
-    height:80px;
-    justify-content:space-between;
-    display: flex;
-    align-items:center;
- flex-direction:row;
-border-radius:4px;
-div{
-  color:#3F3446;
-  padding:0 15px;
-  display: flex;
-  font-size:24px;
-  flex-direction:column;
-  span{
-    font-size:12px;
-  }
-}
-}
+
 `

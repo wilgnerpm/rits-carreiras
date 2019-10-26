@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import { Route,  } from 'react-router-dom';
 import DashboardLayout from '../pages/_layouts/dashboard';
 import DefaultLayout from '../pages/_layouts/default';
 export default function RouteWrapper({
@@ -8,7 +8,7 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-const { signed } = true;
+//const { signed } = true;
 
  // if (!signed && isPrivate) {
   //  return <Redirect to="/" />;

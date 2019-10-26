@@ -1,7 +1,5 @@
 import React from "react"; // add the hooks
 import { useDispatch, useSelector } from 'react-redux';
-import logo from '../../assets/logotipo.png';
-import { Link } from 'react-router-dom';
 import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
 import { signInRequest } from '../../store/modules/auth/actions';

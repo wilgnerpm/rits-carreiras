@@ -13,7 +13,6 @@ export default function Dashboard() {
   const [edit, setEdit] = useState(false);
   const [loading, setLoading] = useState(false);
   const [carreiras, setCarreiras] = useState([]);
-  const [carreira, setCarreira] = useState({});
   useEffect(()=>{
     handleLoadCarreiras()
   }, [])

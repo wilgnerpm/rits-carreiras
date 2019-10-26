@@ -111,6 +111,11 @@ color:#4EEF61
       }
 
     }
+    .btn-circle{
+      border-radius: 50%;
+            padding:10px;
+
+      }
     .btn-green{
 background: #4EEF61;
       }

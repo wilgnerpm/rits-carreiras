@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../../../components/Input'
 import {Container} from '../styles'
@@ -20,7 +20,7 @@ export default function Editar(props) {
     delete carreira_['url'];
     delete carreira_['count'];
     try {
-      const response = await api.put(`admin/carreira/${carreiraEdit.id}`,carreira_)
+       await api.put(`admin/carreira/${carreiraEdit.id}`,carreira_)
       setLoading(false)
       toast.success('Carreira atualizada...');
     } catch (error) {

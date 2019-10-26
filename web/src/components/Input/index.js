@@ -11,6 +11,7 @@ export default function InputItem({ name, label,value, ...rest }) {
     registerField({
       name: fieldName,
       ref: ref.current,
+      selected:selected,
       path: 'props.selected',
       clearValue: pickerRef => {
         pickerRef.clear();

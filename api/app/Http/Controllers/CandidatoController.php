@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CandidatoController extends Controller
-{
+class CandidatoController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -21,8 +20,7 @@ class CandidatoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -32,27 +30,21 @@ class CandidatoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-     
-         $candidato=new \App\Candidato;
-         
-         
-         $candidato->carreira_id = $request->carreira_id;
-         $candidato->nome_completo = $request->nome_completo;
-         $candidato->email = $request->email;
-         $candidato->telefone = $request->telefone;
-         $candidato->resumo = $request->resumo;
-         $candidato->linkedin = $request->linkedin;
-         $candidato->github = $request->github;
-         $candidato->nivel_ingles = $request->nivel_ingles;
-          $candidato->salario = $request->salario;
-           $candidato->file = 'teste';
-            $candidato->classificado = 'open';
-         
-$candidato->save();
-         
-           if ($candidato) {
+    public function store(Request $request) {
+        $candidato = new \App\Candidato;
+        $candidato->carreira_id = $request->carreira_id;
+        $candidato->nome_completo = $request->nome_completo;
+        $candidato->email = $request->email;
+        $candidato->telefone = $request->telefone;
+        $candidato->resumo = $request->resumo;
+        $candidato->linkedin = $request->linkedin;
+        $candidato->github = $request->github;
+        $candidato->nivel_ingles = $request->nivel_ingles;
+        $candidato->salario = $request->salario;
+        $candidato->file = 'teste';
+        $candidato->classificado = 'open';
+        $candidato->save();
+        if ($candidato) {
             return response()->json([
                         'success' => true,
             ]);
@@ -70,13 +62,12 @@ $candidato->save();
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $candidato= \App\Candidato::find($id);
-         if ($candidato) {
+    public function show($id) {
+        $candidato = \App\Candidato::find($id);
+        if ($candidato) {
             return response()->json([
                         'success' => true,
-                'candidato'=>$candidato,
+                        'candidato' => $candidato,
             ]);
         } else {
             return response()->json([
@@ -92,8 +83,7 @@ $candidato->save();
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -104,9 +94,20 @@ $candidato->save();
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $candidato = \App\Candidato::find($id);
+        $candidato->classificado = 'open';
+        $candidato->save();
+        if ($candidato) {
+            return response()->json([
+                        'success' => true,
+            ]);
+        } else {
+            return response()->json([
+                        'success' => false,
+                        'message' => 'Sorry, candidato could not be added'
+                            ], 500);
+        };
     }
 
     /**
@@ -115,8 +116,8 @@ $candidato->save();
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

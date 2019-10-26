@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logotipo-white.svg';
-import { Container, Content, Profile } from './styles';
 export default function Header() {
   return (
     <div >

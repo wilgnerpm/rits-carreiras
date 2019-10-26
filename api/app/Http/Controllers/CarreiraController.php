@@ -63,11 +63,11 @@ class CarreiraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        $carreira = \App\Carreira::with('candidato')->where('id', $id)->get();
+        $carreira = \App\Carreira::with('candidato')->where('id', $id)->first();
         if ($carreira) {
             return response()->json([
                         'success' => true,
-                        'carreira' => $carreira
+                        'carreira' => $carreira,
             ]);
         } else {
             return response()->json([
@@ -86,7 +86,6 @@ class CarreiraController extends Controller {
      */
     public function update(Request $request, $id) {
         $carreira=$request->all();
-        
         $carreira = \App\Carreira::where('id', $id)->update($request->all());
 
         return response()->json([
