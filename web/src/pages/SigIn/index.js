@@ -4,7 +4,9 @@ import logo from '../../assets/logotipo.png';
 import { Link } from 'react-router-dom';
 import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
+import { signInRequest } from '../../store/modules/auth/actions';
 import {Container} from './styles'
+
 import * as Yup from 'yup';
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -14,9 +16,10 @@ const schema = Yup.object().shape({
 });
 export default function SignIn() {
 
-  const loading = false;
-  function handleSubmit(data) {
-    console.log(data)
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
   }
 
   return (

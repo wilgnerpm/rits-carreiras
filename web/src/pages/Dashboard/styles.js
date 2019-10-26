@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import posed from 'react-pose';
+
 
 export const Container = styled.div`
   margin: 0px auto;
@@ -13,6 +15,7 @@ padding:40px 0px;
         align-items:center;
         justify-content:space-between;
         padding:15px;
+        margin-bottom:15px;
         .box-carreira-body{
           display:flex;
         flex-direction:row;
@@ -49,3 +52,20 @@ padding:40px 0px;
       }
     }
 `;
+export const  BoxCarreira = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+    boxShadow: '0px 0px 0px rgba(0,0,0,0)'
+  },
+  hover: {
+    scale: 1.1,
+    boxShadow: '0px 5px 10px rgba(0,0,0,0.2)'
+  },
+  press: {
+    scale: 1.1,
+    boxShadow: '0px 2px 5px rgba(0,0,0,0.1)'
+  },
+
+})

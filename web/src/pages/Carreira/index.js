@@ -1,10 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import {  Form, FileInput} from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
 import  Select from '../../components/Select'
 import { ContainerBackgroud, FormCanidatese } from './styles';
 import { MdCheckCircle, MdAttachFile } from 'react-icons/md';
-export default function Carreiras() {
+import api from '../../services/api'
+import * as Yup from 'yup';
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('Insira um email').required('O e-mail é obrigatório'),
+    nome_completo: Yup.string().required('Nome completo é obrigatorio'),
+    telefone: Yup.string().required('Telefone é obrigatorio'),
+    resumo: Yup.string(),
+    linkedin: Yup.string().required('Linkedin é obrigatorio'),
+    github: Yup.string().required('Github é obrigatorio'),
+    nivel_ingles: Yup.string().required('Nivel de inglês é obrigatorio'),
+    salario: Yup.string().required('Pretensão salarial é obrigatorio'),
+});
+
+export default function Carreiras(props) {
+  const { data } = props.location.state;
+  const [carreira, setCarreira] = useState(data);
+  const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState('');
+  async function handleSubmit({nome_completo,email, telefone, resumo, linkedin, github, nivel_ingles, salario }) {
+    setLoading(true)
+    const dataForm = new FormData();
+    dataForm.append('carreira_id', carreira.id);
+    dataForm.append('nome_completo', nome_completo);
+    dataForm.append('email', email);
+    dataForm.append('telefone',telefone);
+    dataForm.append('resumo', resumo);
+    dataForm.append('linkedin', linkedin);
+    dataForm.append('github',github);
+    dataForm.append('nivel_ingles', nivel_ingles);
+    dataForm.append('salario', salario);
+    dataForm.append('file', file);
+    console.log(dataForm)
+    const response = await api.post('candidato', dataForm);
+    setLoading(false)
+  }
+
+  async function handleChange(e) {
+    setFile(e.target.files[0])
+
+  }
+
   const options = [
   { id: 'Básico', title: 'Básico' },
   { id: 'Intermedário', title: 'Intermedário' },
@@ -17,17 +59,21 @@ export default function Carreiras() {
 
              <header>
         <h2>
-Natal/RN - Brasil
+{carreira.localizacao}
         </h2>
         <h1>
-          Desenvolvedor PHP
+        {carreira.carreira}
         </h1>
       </header>
 
 
 
             <div className='candidate'>
- <a href="#candidate-se" className="btn btn-green">Candidate-se</a>
+ <Link to={{
+    pathname: `/carreiras/${carreira.url}#candidate-se`,
+    state: { data: carreira ,
+      hash: "#candidate-se",}
+  }}  className="btn btn-green">Candidate-se</Link>
             </div>
 
            <div className="carreira-detalhes">
@@ -82,31 +128,33 @@ Procuramos alguém que:
     </ContainerBackgroud>
        <div >
          <div>
-          <div mobile={12} table={12} desktop={12} >
+          <div  >
             <FormCanidatese>
-                 <Form className=''>
+            <Form  schema={schema} onSubmit={handleSubmit}>
                    <h2 id='candidate-se'>Informações pessoais</h2>
- <Input name="name" label="NOME COMPLETO" type="text"  placeholder=" SEU NOME"/>
+ <Input name="nome_completo" label="NOME COMPLETO" type="text"  placeholder=" SEU NOME"/>
   <Input name="email" label="E-MAIL" type="email"  placeholder=" SEU E-MAIL"/>
   <Input name="telefone" label="TELEFONE(COM DD)" type="text"  placeholder="SEU TELEFONE"/>
     <h2>Carta de apresentação</h2>
  <Input name="resumo" multiline label="CONTE SUA MOTIVAÇÃO (opcional)" type="text"  placeholder="Faça um breve resumo sobre você"/>
-
     <h2>Últimas perguntas</h2>
- <Input name="Linkedin" label="URL do seu Linkedin" type="text"  placeholder="www.linkedin.com/xxxxxxxxxx"/>
+ <Input name="linkedin" label="URL do seu Linkedin" type="text"  placeholder="www.linkedin.com/xxxxxxxxxx"/>
  <Input name="github" label='URL DO SEU GITHUB' type="text"  placeholder="www.github.com/xxxxxxxxxx"/>
-
-  <Select name="tech" label='QUAL SEU NÍVEL DE INGLÊS?' options={options} />
-
-  <Input name="pretensao_salarial" label='PRETENSÃO SALARIAL' type="text" value='R$' placeholder="R"/>
+  <Select name="nivel_ingles" label='QUAL SEU NÍVEL DE INGLÊS?' options={options} />
+  <Input name="salario" label='PRETENSÃO SALARIAL' type="text"  placeholder="R$"/>
  <h2>Anexe seu currículo em PDF ou DOC</h2>
 <div class="upload-btn-wrapper">
-  <button class="btn-upload ">
+  <button className="btn-upload ">
     <MdAttachFile color="#2E2236" size={14} /> Escolha um arquivo</button>
-<FileInput name="attach"  id="file"  />
+    <input
+          type="file"
+          accept="doc/*"
+          onChange={handleChange}
+
+        />
 </div>
-<button className="btn btn-green" type="submit" >
-         ENVIAR
+<button className="btn btn-green" type="submit" disabled={loading} >
+         {loading?'ENVIANDO...':'ENVIAR'}
         </button>
     </Form>
             </FormCanidatese>

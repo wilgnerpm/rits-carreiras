@@ -35,7 +35,23 @@ class CandidatoController extends Controller
     public function store(Request $request)
     {
      
-         $candidato= \App\Candidato::create($request->all());
+         $candidato=new \App\Candidato;
+         
+         
+         $candidato->carreira_id = $request->carreira_id;
+         $candidato->nome_completo = $request->nome_completo;
+         $candidato->email = $request->email;
+         $candidato->telefone = $request->telefone;
+         $candidato->resumo = $request->resumo;
+         $candidato->linkedin = $request->linkedin;
+         $candidato->github = $request->github;
+         $candidato->nivel_ingles = $request->nivel_ingles;
+          $candidato->salario = $request->salario;
+           $candidato->file = 'teste';
+            $candidato->classificado = 'open';
+         
+$candidato->save();
+         
            if ($candidato) {
             return response()->json([
                         'success' => true,

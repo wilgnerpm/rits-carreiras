@@ -12,11 +12,16 @@ class CarreiraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-       $carreiras = \App\Carreira::all();
-       if ($carreiras) {
+        $carreiras = \App\Carreira::all();
+        $carreiras->each(function ($item, $key) {
+        $c= \App\Candidato::where('carreira_id', $item->id)->count();
+        $item->count =   $c;
+        });
+        if ($carreiras) {
             return response()->json([
                         'success' => true,
-                        'carreiras' => $carreiras
+                        'carreiras' => $carreiras,
+                        'count' => 9
             ]);
         } else {
             return response()->json([
@@ -24,7 +29,6 @@ class CarreiraController extends Controller {
                         'message' => 'Sorry, carreira could not be added'
                             ], 500);
         };
-        
     }
 
     /**
@@ -38,7 +42,7 @@ class CarreiraController extends Controller {
             'carreira' => 'required',
             'localizacao' => 'required',
         ]);
-        $carreira= \App\Carreira::create($request->all());
+        $carreira = \App\Carreira::create($request->all());
         if ($carreira) {
             return response()->json([
                         'success' => true,
@@ -60,7 +64,7 @@ class CarreiraController extends Controller {
      */
     public function show($id) {
         $carreira = \App\Carreira::with('candidato')->where('id', $id)->get();
-         if ($carreira) {
+        if ($carreira) {
             return response()->json([
                         'success' => true,
                         'carreira' => $carreira
@@ -81,12 +85,14 @@ class CarreiraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
+        $carreira=$request->all();
+        
         $carreira = \App\Carreira::where('id', $id)->update($request->all());
-   
+
         return response()->json([
-                        'success' => true,
-                        'carreira' => \App\Carreira::find($id)
-            ]);
+                    'success' => true,
+                    'carreira' => \App\Carreira::find($id)
+        ]);
     }
 
     /**
@@ -97,10 +103,9 @@ class CarreiraController extends Controller {
      */
     public function destroy($id) {
         $carreira = \App\Carreira::find($id)->delete();
-         return response()->json([
-                        'success' => true
-  
-            ]);
+        return response()->json([
+                    'success' => true
+        ]);
     }
 
 }

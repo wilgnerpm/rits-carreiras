@@ -7,10 +7,13 @@ export default function Carreiras() {
   useEffect(()=>{
     async function loadCarreiras() {
       const response = await api.get('carreiras');
-      setCarreiras(response.data.carreiras)
+      const {data} = response;
+      const {carreiras} = data;
+      setCarreiras(carreiras)
+
     }
     loadCarreiras();
-    console.log(carreiras)
+
   },[])
   return (
     <div>
@@ -20,16 +23,19 @@ export default function Carreiras() {
 Conheça as oportunidades que temos em aberto.
   </h2>
            <h1>
-Vagas em aberto
+             {carreiras[0]?'Vagas em aberto':':( Ops... No momento não temos vagas abertas.'}
   </h1>
   <div className="carreiras">
-    {carreiras.map(carreira=>(
-  <div className="carreira">
+    {carreiras.map(c=>(
+  <div key={c.id} className="carreira">
   <div className="carreira-content">
-<span>Natal - RN, Brasil</span><h2>Desenvolvedor Frontend</h2>
+<span>{c.localizacao}</span><h2>{c.carreira}</h2>
 </div>
 <div className="carreira-button">
-<Link to="/carreiras/testexs" className="btn btn-green">Canidatar-se</Link>
+<Link  to={{
+    pathname: `/carreiras/${c.url}`,
+    state: { data: c }
+  }} className="btn btn-green">Canidatar-se</Link>
 </div>
 </div>
     ))}

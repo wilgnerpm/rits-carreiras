@@ -1,24 +1,37 @@
-import React, {useState} from 'react';
-
+import React, {useState, useEffect} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Container } from './styles';
-
-export default function Carreira() {
+import api from '../../../services/api'
+export default function Carreira(props) {
   const [edit, setEdit] = useState(false);
-
-
+  const { data } = props.location.state;
+  const [carreira, setCarreira] = useState(data);
+  const [loading, setLoading] = useState(false);
+  const [candidatos, setCandidatos] = useState([]);
+  useEffect(()=>{
+    async function handleLoadCandidatos() {
+      const response = await api.get(`admin/carreira/${carreira.id}`)
+      setCandidatos(response.data.carreira.candidato)
+    }
+    handleLoadCandidatos()
+  }, [])
     return (
       <Container>
       <div className='card'>
       <div className="card-header">
-      <span>NATAL - RN, BRASIL</span>
+      <span>{carreira.localizacao}</span>
       <div>
-      <h1>Desenvolvedor PHP + Laravel</h1> <label className="badge badge-red">FECHADA</label>
+      <h1>{carreira.carreira}</h1>
+      {!carreira.open?(<label className="badge badge-green">ABERTA</label>):(<label className="badge badge-red">FECHADA</label>)}
       </div>
     </div>
     <div className="card-body">
-    <button className='btn btn-green btn-sm mr-10' >
+    <Link className='btn btn-green btn-sm mr-10' to={{
+pathname: `/dashboard/carreiras/${carreira.id}/editar`,
+state: { data: carreira }
+}}  >
            EDITAR
-          </button>
+          </Link>
           <button className='btn btn-red btn-sm' >
            FECHAR VAGA
           </button>
