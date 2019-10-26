@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Wrapper = styled.div`
-  height: 100%;
-  background: #2e2236;
+flex:1;
+  background: #2E2236;
 
 `;
 

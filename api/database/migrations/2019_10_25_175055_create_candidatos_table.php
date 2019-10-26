@@ -26,6 +26,7 @@ class CreateCandidatosTable extends Migration
             $table->string('nivel_ingles');
             $table->string('salario');
             $table->string('file');
+            $table->string('classificado');
             $table->timestamps();
         });
     }

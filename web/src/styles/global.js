@@ -114,10 +114,17 @@ color:#4EEF61
     .btn-green{
 background: #4EEF61;
       }
+      .btn-red{
+background: #FF0606;
+      }
     .btn-block{
 width:100%;
       }
-
+      .btn-sm{
+        border-radius: 25px;
+            padding:15px 25px;
+      font-size: 12px;
+      }
       .btn-transparent {
         color:#fff;
         background: none;
@@ -203,18 +210,70 @@ margin-top:30px;
 
 /*session-dashboard */
 .card{
+  width:100%;
+  padding:15px;
   .card-header{
     h1{
-      font-size:30px;
+      font-size:26px;
     color:#fff;
-    text-transform:uppercase
+    }
+    h2{
+      color:#ffff;
+      font-size:16px;
+    }
+    span{
+      color:#4EEF61;
     }
   }
   .card-body{
     padding:15px 0px;
   }
+  .card-body-row{
+    display:flex;
+    flex-direction:row;
+  }
+  .card-body-col{
+    padding-right:5px;
+    flex:1;
+    margin-bottom:
+  }
+  @media (max-width:720px) {
+    .card-body-row{
+    display:flex;
+    flex-direction:column;
+  }
+}
 }
 
+/*badge */
+.badge{
+      font-size:12px;
+      color:#fff;
+      padding:9px 15px;
+      font-weight:bold;
+    border-radius:20px
+    }
+    .badge-red{
+      color:#fff;
+      background:#FF0606
+    }
+ /*text */
+    .text-red{
+      color:#FF0606;
+    }
+    .text-green{
+      color:#4EEF61;
+    }
+    /*margin */
+    .mr-10{
+margin-right:10px;
+    }
+    .mt-10{
+margin-top:10px;
+    }
+    .mb-10{
+margin-top:10px;
+    }
 
 `;
 

@@ -8,7 +8,7 @@ export default function HeaderDashboard() {
       <header className='header-dashboard'>
         <div className='header-content'>
         <div className='header-logo'>
- <Link to='/carreiras'><img src={logo} alt="Logo " /></Link>
+ <Link to='/dashboard'><img src={logo} alt="Logo " /></Link>
           </div>
         <nav className='header-nav'>
         </nav>

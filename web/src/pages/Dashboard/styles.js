@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 0px auto;
-width:900px;
+  max-width:900px;
 padding:40px 0px;
 .box-carreiras{
       .box-carreira{
@@ -11,8 +11,13 @@ padding:40px 0px;
         display:flex;
         flex-direction:row;
         align-items:center;
-        align-content:space-between;
+        justify-content:space-between;
         padding:15px;
+        .box-carreira-body{
+          display:flex;
+        flex-direction:row;
+        align-items:center;
+        }
         .box-carreira-candidatos{
           display:flex;
         flex-direction:column;

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Container} from './styles'
 import { Link } from 'react-router-dom';
 import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
+import {Container} from './styles'
 export default function Dashboard() {
   const [edit, setEdit] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -47,15 +47,25 @@ export default function Dashboard() {
         <div className="card-body">
         <div className="box-carreiras">
         <div className="box-carreira">
-        <div className='box-carreira-candidatos'>
+          <div className="box-carreira-body">
+          <div className='box-carreira-candidatos'>
   8
-  <span>Candidatos</span>
+  <span>CANDIDATOS</span>
         </div>
         <div className='box-carreira-content'>
   <span>Natal - RN, Brasil
   </span>
-  <Link to="/dashboard/carreiras/2">Desenvolvedor PHP + Laravel</Link>
+  <Link to="/dashboard/carreiras/2" >Desenvolvedor PHP + Laravel</Link>
           </div>
+          </div>
+<div>
+<Link  to="/dashboard/carreiras/2/editar" className='btn btn-trans btn-sm mr-10' >
+           EDITAR
+          </Link>
+          <Link  to="/dashboard/carreiras/2" className='btn btn-green btn-sm mr-10' >
+           CANDIDATOS
+          </Link>
+</div>
 
           </div>
         </div>

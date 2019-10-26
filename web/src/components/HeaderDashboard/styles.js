@@ -8,6 +8,7 @@ export const Container = styled.div`
   .header-content{
     padding:0px 20px;
     max-width:1120px;
+
     margin: 0px auto;
     height:80px;
     justify-content:space-between;
