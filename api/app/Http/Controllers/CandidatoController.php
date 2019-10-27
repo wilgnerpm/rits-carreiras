@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class CandidatoController extends Controller {
 
     /**
@@ -31,6 +31,8 @@ class CandidatoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+  
+
         $candidato = new \App\Candidato;
         $candidato->carreira_id = $request->carreira_id;
         $candidato->nome_completo = $request->nome_completo;
@@ -41,7 +43,11 @@ class CandidatoController extends Controller {
         $candidato->github = $request->github;
         $candidato->nivel_ingles = $request->nivel_ingles;
         $candidato->salario = $request->salario;
-        $candidato->file = 'teste';
+        $path = false;
+         if ($request->hasFile('file') && $request->file('file')->isValid()) {
+            $path = $request->file('file')->store('carriculos');
+         }
+        $candidato->file = $path;
         $candidato->classificado = 'open';
         $candidato->save();
         if ($candidato) {
