@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('telegram', 'TelegramController@index');
 
 Route::post('sigin', 'SessionController@login');
 Route::post('signup', 'UserController@store');
