@@ -11,7 +11,7 @@ class UserTest extends TestCase
 
 use DatabaseTransactions;
 
-     public function testSignUp()
+     public function teste_de_cadastro_usuario()
     {
    $response = $this->postJson('/api/signup', ['name' => 'User test', 'email'=>'teste@teste.com.br', 'password'=>'123123123']);
 $response->assertStatus(200)
@@ -19,12 +19,12 @@ $response->assertStatus(200)
                 'success' => true,
             ]);
 }
- public function testSignIn()
+ public function teste_login_para_dashboard()
     {
-   $response = $this->postJson('/api/sigin', ['email'=>'wilgnerp@hotmail.com.br', 'password'=>'123123123']);
+   $response = $this->postJson('/api/sigin', ['email'=>'wilgnerp@hotmail.com', 'password'=>'123123123']);
 $response->assertStatus(200)
             ->assertJson([
-                'token_type' => 'bearer',
+                'success' => true,
             ]);
 }
 }
