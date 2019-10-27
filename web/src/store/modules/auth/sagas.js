@@ -12,10 +12,6 @@ export function* signIn({ payload }) {
       password,
     });
     const { token, user } = response.data;
-    if (!user.admin) {
-      toast.error('User is not admin ');
-      yield put(signFailure());
-    }
     api.defaults.headers.Authorization = `Bearer ${token}`;
     yield put(signInSuccess(token, user));
     history.push('/dashboard');

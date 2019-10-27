@@ -136,7 +136,7 @@ width:100%;
       }
     /* page carreiras */
     .carreiras{
-      max-width:640px;
+      max-width:900px;
       margin:0 auto;
       padding:50px;
       .carreira{

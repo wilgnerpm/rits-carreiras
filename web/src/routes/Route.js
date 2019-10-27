@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route,  } from 'react-router-dom';
+import { Route,Redirect  } from 'react-router-dom';
 import DashboardLayout from '../pages/_layouts/dashboard';
 import DefaultLayout from '../pages/_layouts/default';
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from '../store';
 export default function RouteWrapper({
   component: Component,
   isPrivate,
   ...rest
 }) {
-//const { signed } = true;
+  const { signed } = store.getState().auth;
 
- // if (!signed && isPrivate) {
-  //  return <Redirect to="/" />;
-  //}
+if (!signed && isPrivate) {
+   return <Redirect to="/" />;
+}
 
   // Se estiver logado e a rota nao for privada, redireciona para o dashboard
  // if (signed && isPrivate) {

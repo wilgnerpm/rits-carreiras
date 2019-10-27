@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {  Form, FileInput} from "@rocketseat/unform"; // useField hook
+import { toast } from 'react-toastify';
 import  Input from '../../components/Input'
 import  Select from '../../components/Select'
 import { ContainerBackgroud, FormCanidatese } from './styles';
 import { MdCheckCircle, MdAttachFile } from 'react-icons/md';
 import api from '../../services/api'
 import * as Yup from 'yup';
+
 const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um email').required('O e-mail é obrigatório'),
@@ -25,6 +27,7 @@ export default function Carreiras(props) {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState('');
   async function handleSubmit({nome_completo,email, telefone, resumo, linkedin, github, nivel_ingles, salario }) {
+  try {
     setLoading(true)
     const dataForm = new FormData();
     dataForm.append('carreira_id', carreira.id);
@@ -40,6 +43,12 @@ export default function Carreiras(props) {
     console.log(dataForm)
     const response = await api.post('candidato', dataForm);
     setLoading(false)
+    toast.success('Obrigado pelo interrese na vaga... ;) ');
+  } catch (error) {
+    toast.error('Falha');
+    setLoading(false)
+  }
+
   }
 
   async function handleChange(e) {

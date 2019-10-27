@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../assets/logotipo-black.svg';
 import { Container,  Profile } from './styles';
+import {signOut } from '../../store/modules/auth/actions'
+import { store } from '../../store'
 export default function HeaderDashboard() {
+  const dispatch = useDispatch();
+  function handleSubmitSignOut() {
+    dispatch(signOut());
+  }
   return (
     <Container >
       <header className='header-dashboard'>
@@ -15,11 +22,10 @@ export default function HeaderDashboard() {
         <Profile>
             <div>
               <strong>wiglner</strong>
-              <Link to="profile">Sair</Link>
+              <Link  onClick={handleSubmitSignOut}>SAIR</Link>
             </div>
             <img
               src={
-
                 'https://api.adorable.io/avatars/200/abott@adorable.png'
               }
               alt="Wilgner Pinheiro"

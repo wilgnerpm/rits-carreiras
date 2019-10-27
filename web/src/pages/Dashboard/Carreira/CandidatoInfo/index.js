@@ -13,8 +13,8 @@ callbackParent(candidatoAtualizado);
      <h1>{candidato.nome_completo}</h1>
      <p>E-mail: <span>{candidato.email}</span></p>
      <p>Telefone: <span>{candidato.telefone}</span></p>
-     <p>linkedin: <span>{candidato.linkedin}</span></p>
-     <p>github: <span>{candidato.github}</span></p>
+     <p>linkedin: <span><a target={candidato.linkedin} href={candidato.linkedin}>{candidato.linkedin}</a></span></p>
+     <p>github: <span><a target={candidato.github} href={candidato.github}>{candidato.github}</a></span></p>
      <p>Nivel de Ingles:: <span>{candidato.nivel_ingles}</span></p>
      <p>Pretensao Salariol: <span>R$ {candidato.salario}</span></p>
      <p>Curriculo</p>
