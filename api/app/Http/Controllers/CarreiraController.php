@@ -12,7 +12,7 @@ class CarreiraController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $carreiras = \App\Carreira::all();
+        $carreiras = \App\Carreira::orderBy('open', 'desc')->get();
         $carreiras->each(function ($item, $key) {
         $c= \App\Candidato::where('carreira_id', $item->id)->count();
         $item->count =   $c;

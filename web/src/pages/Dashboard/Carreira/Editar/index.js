@@ -22,7 +22,7 @@ export default function Editar(props) {
     try {
        await api.put(`admin/carreira/${carreiraEdit.id}`,carreira_)
       setLoading(false)
-      toast.success('Carreira atualizada...');
+      toast.success('Vaga atualizada...');
     } catch (error) {
       toast.error('Falha');
       setLoading(false)
@@ -56,7 +56,7 @@ state: { data: carreiraEdit }
         Cancelar
         </Link>
         <button className='btn btn-green' type="submit" disabled={loading}>
-          {loading ? 'Carregando...' : 'Salvar'}
+          {loading ? 'Atualizando...' : 'Salvar'}
         </button>
       </Form>
     </div>

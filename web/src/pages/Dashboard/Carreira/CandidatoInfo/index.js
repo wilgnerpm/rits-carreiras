@@ -4,11 +4,10 @@ import api from '../../../../services/api'
 export default function CandidatoInfo({candidato, callbackParent}) {
 
  async function handleClassificado(classificado){
-  const response = await api.get(`admin/candidato/${candidato.id}`,{classificado:classificado})
-  callbackParent(candidato);
-  console.log(response)
+await api.put(`admin/candidato/${candidato.id}`,{classificado:`${classificado}`})
+const candidatoAtualizado = {...candidato,classificado:`${classificado}`}
+callbackParent(candidatoAtualizado);
   }
-
   return (
     <Container>
      <h1>{candidato.nome_completo}</h1>

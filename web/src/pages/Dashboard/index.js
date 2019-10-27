@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
-import {Container, BoxCarreira} from './styles'
+import {Container, BoxCarreira, BoxCarreiraCard} from './styles'
 import api from '../../services/api'
 import * as Yup from 'yup';
 const schema = Yup.object().shape({
@@ -22,6 +22,7 @@ export default function Dashboard() {
     let date = {carreira, localizacao,  open:0}
     const response = await api.post('admin/carreira',date)
     setEdit(false)
+    handleLoadCarreiras()
   }
 
   async function handleLoadCarreiras() {
@@ -73,8 +74,7 @@ export default function Dashboard() {
         <div className="box-carreiras">
         {carreiras.map(carreira=>(
           <BoxCarreira>
-      <div className="box-carreira">
-
+            <BoxCarreiraCard  open={carreira.open}>
 <div className="box-carreira-body">
 <div className='box-carreira-candidatos'>
 {carreira.count}
@@ -98,7 +98,8 @@ state: { data: carreira }
 </Link>
 </div>
 
-</div>
+            </BoxCarreiraCard>
+
           </BoxCarreira>
        ))}
 

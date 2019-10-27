@@ -259,8 +259,12 @@ margin-top:30px;
     border-radius:20px
     }
     .badge-red{
-      color:#fff;
+      color:#2E2236;
       background:#FF0606
+    }
+    .badge-green{
+      color:#2E2236;
+      background:#4EEF61
     }
  /*text */
     .text-red{

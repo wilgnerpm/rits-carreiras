@@ -17,7 +17,7 @@ div{
   color:#3F3446;
   padding:0 15px;
   display: flex;
-  font-size:20px;
+  font-size:18px;
   flex-direction:column;
   span{
     font-size:10px;

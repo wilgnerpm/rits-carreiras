@@ -8,7 +8,12 @@ export const Container = styled.div`
 padding:40px 0px;
 .box-carreiras{
       .box-carreira{
-        background:#fff;
+
+      }
+    }
+`;
+export const BoxCarreiraCard = styled.div`
+ background:#fff;
         border-radius:4px;
         display:flex;
         flex-direction:row;
@@ -16,6 +21,7 @@ padding:40px 0px;
         justify-content:space-between;
         padding:15px;
         margin-bottom:15px;
+        opacity: ${props => (props.open ? 1 : 0.2)};
         .box-carreira-body{
           display:flex;
         flex-direction:row;
@@ -49,9 +55,7 @@ padding:40px 0px;
         }
         }
 
-      }
-    }
-`;
+`
 export const  BoxCarreira = posed.div({
   hoverable: true,
   pressable: true,

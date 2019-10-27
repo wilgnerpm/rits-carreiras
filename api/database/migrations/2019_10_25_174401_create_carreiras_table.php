@@ -17,7 +17,7 @@ class CreateCarreirasTable extends Migration
             $table->bigIncrements('id');
             $table->string('carreira');
             $table->string('localizacao');
-            $table->string('open');
+            $table->boolean('open');
             $table->timestamps();
         });
     }
