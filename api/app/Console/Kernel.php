@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:AvisoNovosCandidadatos')->twiceDaily(12, 18);
+        $schedule->command('command:AvisoNovosCandidadatos')->everyMinute();
     }
 
     /**

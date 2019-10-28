@@ -4,7 +4,6 @@ api/vendor/*
 api-botman/vendor/*
 
 #docker
-docker/data/postgres/*
 web/node_modules/*
 /api/nbproject/private/
 /api-botman/nbproject/private/
