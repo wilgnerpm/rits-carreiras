@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth.jwt'], function () {
     //candidato 
     Route::get('candidato/{id}', 'CandidatoController@show');
     Route::put('candidato/{id}', 'ClassificadoController@update');
+    
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

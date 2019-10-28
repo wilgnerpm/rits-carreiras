@@ -45,7 +45,7 @@ class CandidatoController extends Controller {
         $candidato->salario = $request->salario;
         $path = false;
          if ($request->hasFile('file') && $request->file('file')->isValid()) {
-            $path = $request->file('file')->store('carriculos');
+            $path = $request->file('file')->store('curriculos');
          }
         $candidato->file = $path;
         $candidato->classificado = 'open';

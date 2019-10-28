@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+ Route::get('candidato/curriculo/{id}', 'CurriculoController@show');//download do curriculo
