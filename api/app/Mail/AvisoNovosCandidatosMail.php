@@ -28,15 +28,18 @@ class AvisoNovosCandidatosMail extends Mailable
      */
    public function build()
 {
+
        $carreiras = \App\Carreira::where('open', 'true')->orderBy('open', 'desc')->get();
         $carreiras->each(function ($item, $key) {
         $c= \App\Candidato::where(['carreira_id'=>$item->id, 'classificado'=>'open'])->count();
         $item->count = $c;
         });
+        $user = \App\User::where('admin', 'true')->first();
+            return   $this->from('wilgnerp@hotmail.com')
+            ->view('emails.aviso')->with([
+                'carreiras'=>$carreiras,
+                'user'=>$user
+            ]);
 
-    return $this->from('wilgnerp@hotmail.com')
-                ->view('emails.aviso')->with([
-                    'carreiras'=>$carreiras
-                ]);
 }
 }

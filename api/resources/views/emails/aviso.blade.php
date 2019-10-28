@@ -1,6 +1,6 @@
 <html>
     <body>
-        <p>Olá, Wilgner</p>
+        <p>Olá, {{$user->name}}</p>
         <p></p>
         @foreach($carreiras as $c)
                    <p>{{$c->carreira}}: {{$c->count}} novo(s) candidato(s)</p>
