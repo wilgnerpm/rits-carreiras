@@ -6,4 +6,3 @@ $botman = resolve('botman');
 
 
 $botman->hears('/vagasrits', BotVagasRitsController::class.'@startConversation');
-$botman->hears('/candidatos', BotVagasRitsController::class.'@candidatos');

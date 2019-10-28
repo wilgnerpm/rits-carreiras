@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api'
 
 export default function Carreiras() {
+  const [loading, setLoading] = useState(true);
   const [carreiras, setCarreiras] = useState([]);
   useEffect(()=>{
     async function loadCarreiras() {
@@ -10,6 +11,7 @@ export default function Carreiras() {
       const {data} = response;
       const {carreiras} = data;
       setCarreiras(carreiras)
+      setLoading(false)
 
     }
     loadCarreiras();
@@ -22,7 +24,7 @@ export default function Carreiras() {
 Conheça as oportunidades que temos em aberto.
   </h2>
            <h1>
-             {carreiras[0]?'Vagas em aberto':':( Ops... No momento não temos vagas abertas.'}
+           Vagas em aberto
   </h1>
   <div className="carreiras">
     {carreiras.map(c=>(
