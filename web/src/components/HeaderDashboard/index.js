@@ -7,6 +7,7 @@ import {signOut } from '../../store/modules/auth/actions'
 import { store } from '../../store'
 export default function HeaderDashboard() {
   const dispatch = useDispatch();
+  const {name} = useSelector(state => state.user.profile[0]);
   function handleSubmitSignOut() {
     dispatch(signOut());
   }
@@ -21,7 +22,7 @@ export default function HeaderDashboard() {
         </nav>
         <Profile>
             <div>
-              <strong>wiglner</strong>
+              <strong>{name}</strong>
               <Link  onClick={handleSubmitSignOut}>SAIR</Link>
             </div>
             <img

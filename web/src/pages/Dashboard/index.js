@@ -5,16 +5,18 @@ import  Input from '../../components/Input'
 import {Container, BoxCarreira, BoxCarreiraCard} from './styles'
 import api from '../../services/api'
 import * as Yup from 'yup';
+import {SpiralSpinner} from "react-spinners-kit";
 const schema = Yup.object().shape({
   carreira: Yup.string().required('Titulo da vaga é obrigatório'),
   localizacao: Yup.string().required('A localização é obrigatório'),
 });
 export default function Dashboard() {
   const [edit, setEdit] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [carreiras, setCarreiras] = useState([]);
   useEffect(()=>{
     handleLoadCarreiras()
+
   }, [])
 
   async function handleSubmit({carreira, localizacao}) {
@@ -29,6 +31,7 @@ export default function Dashboard() {
     const response = await api.get('admin/carreira')
     const {data} = response;
     setCarreiras(data.carreiras)
+    setLoading(false)
   }
   if(edit){
     return (
@@ -57,9 +60,9 @@ export default function Dashboard() {
   }else{
     return (
 
-      <Container>
 
-  <div className='card'>
+      <Container>
+   {loading?(<div className="loadingCenter"><SpiralSpinner size={50} frontColor="#2E2236" backColor='#4EEF61'/></div>):(  <div className='card'>
   <div className="card-header">
         <h1>
           Carreiras
@@ -105,7 +108,9 @@ state: { data: carreira }
 
         </div>
         </div>
-      </div>
+      </div>)}
+
+
       </Container>
 
     );

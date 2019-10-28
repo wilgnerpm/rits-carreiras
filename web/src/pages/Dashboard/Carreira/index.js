@@ -5,9 +5,11 @@ import { Container } from './styles';
 import api from '../../../services/api'
 import Candidato from '../../../components/Candidato'
 import CandidatoInfo from './CandidatoInfo'
+import {SpiralSpinner} from "react-spinners-kit";
 export default function Carreira(props) {
   const { data } = props.location.state;
   const [carreiraAtual, setCarreiraAtual] = useState(data);
+  const [loading, setLoading] = useState(true);
   const [candidato, setCandidato] = useState(false);
   const [candidatosList, setcandidatosList] = useState([]);
   useEffect(()=>{
@@ -17,6 +19,7 @@ export default function Carreira(props) {
     const response = await api.get(`admin/carreira/${carreiraAtual.id}`)
     const {candidato} = response.data.carreira;
     setcandidatosList(candidato)
+    setLoading(false)
   }
   function candidatoSelecionado(candidato) {
     setCandidato(candidato)
@@ -58,6 +61,8 @@ state: { data: carreiraAtual }
    {carreiraAtual.open?(<button className='btn btn-red btn-sm' onClick={()=>handleUpdateOpen(false)} >FECHAR VAGA</button>):(<button className='btn btn-green btn-sm' onClick={()=>handleUpdateOpen(true)}>ABRIR VAGA</button>)}
     </div>
     </div>
+{loading?(<div className="loadingCenter"><SpiralSpinner size={75} frontColor="#2E2236" backColor='#4EEF61'/></div>):(<div>
+
 
 {candidato?(<CandidatoInfo candidato={candidato} callbackParent={(candidato)=>handleUpdateCandidato(candidato)} />):(   <div className='card'>
 {candidatosList.length?(<div className="card-header mt-10">
@@ -98,6 +103,9 @@ if(candidato.classificado==='false'){
 
  </div>
 )}
+
+</div>)}
+
 
 
       </Container>

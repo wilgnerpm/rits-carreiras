@@ -4,7 +4,7 @@ import {  Form } from "@rocketseat/unform"; // useField hook
 import  Input from '../../components/Input'
 import { signInRequest } from '../../store/modules/auth/actions';
 import {Container} from './styles'
-
+import {SpiralSpinner} from "react-spinners-kit";
 import * as Yup from 'yup';
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -27,9 +27,8 @@ export default function SignIn() {
         <h1>Login</h1>
         <Input name="email" label="E-mail" type="text"  placeholder="E-mail"/>
         <Input name="password" label="E-mail" type="password" placeholder="Sua senha" />
-        <button className="btn btn-green" type="submit" disabled={loading}>
-          {loading ? 'Carregando...' : 'Acessar'}
-        </button>
+        {loading?(<div className="loadingCenter"><SpiralSpinner size={50} frontColor="#2E2236" backColor='#4EEF61'/></div>):(<button className="btn btn-green" type="submit" disabled={loading} > ACESSAR</button>)}
+
       </Form>
 </div>
 

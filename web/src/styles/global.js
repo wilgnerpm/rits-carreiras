@@ -98,7 +98,7 @@ color:#4EEF61
 /* **/
 .btn {
       margin: 5px 0 0;
-
+  text-align:center;
       font-weight: bold;
       color: #2E2236;
       border: 0;
@@ -283,7 +283,11 @@ margin-top:10px;
     .mb-10{
 margin-top:10px;
     }
-
+.loadingCenter{
+  width:100px;
+  margin:0 auto;
+  padding-top:15px;
+}
 `;
 
 

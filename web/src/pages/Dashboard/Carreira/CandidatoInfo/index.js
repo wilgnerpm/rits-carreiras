@@ -17,7 +17,7 @@ callbackParent(candidatoAtualizado);
      <p>github: <span><a target={candidato.github} href={candidato.github}>{candidato.github}</a></span></p>
      <p>Nivel de Ingles:: <span>{candidato.nivel_ingles}</span></p>
      <p>Pretensao Salariol: <span>R$ {candidato.salario}</span></p>
-     <p>Curriculo</p>
+     <p><span><a target={candidato.curriculo} href={candidato.curriculo}>Currículo</a></span></p>
      <p>Resumo:</p>
      <p><span>
 {candidato.resumo}

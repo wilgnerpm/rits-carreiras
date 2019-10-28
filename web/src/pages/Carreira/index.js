@@ -6,6 +6,7 @@ import  Input from '../../components/Input'
 import  Select from '../../components/Select'
 import { ContainerBackgroud, FormCanidatese } from './styles';
 import { MdCheckCircle, MdAttachFile } from 'react-icons/md';
+import {SpiralSpinner} from "react-spinners-kit";
 import api from '../../services/api'
 import * as Yup from 'yup';
 
@@ -162,9 +163,9 @@ Procuramos alguém que:
 
         />
 </div>
-<button className="btn btn-green" type="submit" disabled={loading} >
-         {loading?'ENVIANDO...':'ENVIAR'}
-        </button>
+
+         {loading?(<div className="loadingCenter"><SpiralSpinner size={50} frontColor="#2E2236" backColor='#4EEF61'/></div>):(<button className="btn btn-green" type="submit" disabled={loading} > ENVIAR</button>)}
+
     </Form>
             </FormCanidatese>
 
