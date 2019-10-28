@@ -24,9 +24,17 @@ color:#6C6472;
    }
 }
 .footer-site{
-color: #4EEF61;
+  display:flex;
+  flex-direction: column;
+a{
+  color: #4EEF61;
   font-weight:bold;
   font-size:16px;
+  label{
+    font-size:12px;
+  }
+}
+
 }
 }
 }
