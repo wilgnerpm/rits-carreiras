@@ -2,7 +2,7 @@
 api/vendor/*
 
 api-botman/vendor/*
-
+/docker/data/
 #docker
 web/node_modules/*
 /api/nbproject/private/
