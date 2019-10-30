@@ -3,14 +3,12 @@
 
 1. Para resolver o desafio, usei o Laravel para a api e o ReactJs no frent-end da aplicação. O banco de dados usado foi o postgres.
    </br>
-
-## O desafio 1. Resolvido com as especificações solicitada.
-
-</br>
-## O desafio 2: O bot foi criado e está funcionando requer configurar com o token do bot e setWebhook no telegram com a url da api-botman.
-</br>
-## O desafio 3: Usei o docker para criar o postgres configurado pelo docker-compose.
-</br></br>
+   --O desafio 1. Resolvido com as especificações solicitada.
+   </br>
+   --O desafio 2: O bot foi criado e está funcionando requer configurar com o token do bot e setWebhook no telegram com a url da api-botman.
+   </br>
+   --O desafio 3: Usei o docker para criar o postgres configurado pelo docker-compose.
+   </br></br>
 
 Clone o projeto:</br>
 git clone https://github.com/wilgnerpm/rits-carreiras.git
