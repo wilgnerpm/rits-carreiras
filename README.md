@@ -1,22 +1,48 @@
-# rits-carreiras
+#desafio
+</br>
 
-1. Clone o projeto:
-   git clone https://github.com/wilgnerpm/rits-carreiras.git
+1. Para resolver o desafio, usei o Laravel para a api e o ReactJs no frent-end da aplicação. O banco de dados usado foi o postgres.
+   </br>
 
-2. Inicie docker com o postgres acessando a pasta docker e execute o comando:
-   docker-compose up -d
+## O desafio 1. Resolvido com as especificações solicitada.
 
-3. Na pasta api e na pas api-botman:
-   3.1 Instale as dependencias, execute o comando:  
-   composer install
-   Atencao: O arquivo .env da api e api-botman esta configurada para se conectar com o postgres. Que foi iniciado no item anterior
-   3.2 Edite o .env da pasta api-botman e coloce no TELEGRAM_TOKEN=<Token do bot>, o token do bot criado.
-   3.3 iniciando o servicos de api e botman, execute o seguinte comando nas pastas api e api-botman:
-   php artisan serve <- Na pasta api;
-   php artisan serve --port=8001 <- Na pasta api-botman;
+</br>
+## O desafio 2: O bot foi criado e está funcionando requer configurar com o token do bot e setWebhook no telegram com a url da api-botman.
+</br>
+## O desafio 3: Usei o docker para criar o postgres configurado pelo docker-compose.
+</br></br>
 
-4.Registrando a url da aplicação no Bot:
-Por fim, é necessário cadastrar a URL do webhook de seu Bot, conforme instruções do <a ref="https://core.telegram.org/bots/api#setwebhook">Telegram</a>.
-4.1 Instale o ngrok e execute o comando ngrok http 8001
-4.2 Pegue a sua URL pública da aplicação com a rota /botman/ (exemplo: https://a1234567.ngrok.io/botman/)
-4.3 juste na "URL final" https://api.telegram.org/bot<ACCESS TOKEN>/setWebhook?url=<URL PÚBLICA DA APLICAÇÃO>/botman/ (exemplo: https://api.telegram.org/bot123456789:Adfkj9jjdf9j9jdf9jRkjerkjMijijJUd11/setWebhook?url=https://a1234567.ngrok.io/botman/)
+Clone o projeto:</br>
+git clone https://github.com/wilgnerpm/rits-carreiras.git
+</br></br>
+1- BANCO DE DADOS</br>
+</br>
+1)Na pasta do projeto execute o comando para iniciar o postgres:
+docker-compose up -d
+</br></br>
+
+2- API
+</br>
+Em um novo terminal acesse a pasta api.
+</br>
+2.1) Na pasta api execute o comando:
+composer install && php artisan migrate && php artisan db:seed && php artisan serve
+</br>
+O comando acima instala as dependências, migra o db, cria o admin no banco de dados e inicia o servidor rodando na porta 8000. Endereço: http://localhost:8000
+</br>
+2.2) Para testa o envio de e-mail configure o smtp no arquivo .env e reinicie o servidor e em seguida execute o comando:
+</br>
+php artisan command:AvisoNovosCandidadatos
+</br>
+O comando testa a função que envia e-mail de 12h e 18h.
+</br></br>
+
+3- WEB
+</br>
+Em um novo terminal acesse a pasta web.
+</br>
+2.1) Na pasta web execute o comando:
+</br>
+yarn && yarn start
+</br>
+O comando acima instala as dependências do ReactJS e executa a aplicação na porta 3000. Endereço: http://localhost:3000
