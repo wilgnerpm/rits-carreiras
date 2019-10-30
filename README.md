@@ -16,6 +16,7 @@ Clone o projeto:</br>
 1- BANCO DE DADOS</br>
 </br>
 1)Na pasta do projeto execute o comando para iniciar o postgres:
+</br>
 <b>docker-compose up -d</b>
 </br></br>
 
