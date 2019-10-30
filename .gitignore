@@ -1,8 +1,11 @@
 #api
 api/vendor/*
+#docker
+docker/nginx/log
+docker/postgres/data
 
 api-botman/vendor/*
-/docker/data/
+
 #docker
 web/node_modules/*
 /api/nbproject/private/
