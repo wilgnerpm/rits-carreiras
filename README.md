@@ -1,6 +1,9 @@
 # rits-carreiras
+1. Usei o Laravel com back-end e ReactJS com front-end.
+
+
 Dados de acesso:
-Email: admin@admin
+Email: admin@admin.com
 Senha: admin123
 
 Clone o projeto:
@@ -21,6 +24,12 @@ Em um novo terminal acesse a pasta api.
 composer install && php artisan migrate  && php artisan db:seed && php artisan serve
 </br>
 O camando acima instala as dependecias, migra o db, cria o admin no banco de dados e inicia o servidor rodando na porta 8000. Endereco: http://localhost:8000
+</br>
+2.2) Para testa o envio de email configure o smtp no arquivo .env e reinicie o servidor e em seguida execute o comando:
+</br>
+php artisan command:AvisoNovosCandidadatos
+</br>
+O comando testa a funcao que envia email de 12h e 18h.
 </br></br>
 3- WEB </br>
 Em um novo terminal acesse a pasta web.</br>
