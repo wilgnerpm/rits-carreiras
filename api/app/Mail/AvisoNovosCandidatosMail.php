@@ -38,7 +38,7 @@ class AvisoNovosCandidatosMail extends Mailable
             return   $this->from('wilgnerp@hotmail.com')
             ->view('emails.aviso')->with([
                 'carreiras'=>$carreiras,
-                'user'=>$user
+                'user'=> $user
             ]);
 
 }
