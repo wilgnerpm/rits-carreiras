@@ -1,15 +1,5 @@
 version: "3.5"
 services:
-  web:
-    container_name: rits-frontend
-    build:
-      context: ./docker/node
-      dockerfile: Dockerfile
-    image: vikasraj/awesome_web
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./web:/usr/src/app
   #banco de dados
   postgres:
     container_name: postgres-rits
