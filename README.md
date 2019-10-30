@@ -24,6 +24,7 @@ docker-compose up -d
 Em um novo terminal acesse a pasta api.
 </br>
 2.1) Na pasta api execute o comando:
+</br>
 composer install && php artisan migrate && php artisan db:seed && php artisan serve
 </br>
 O comando acima instala as dependências, migra o db, cria o admin no banco de dados e inicia o servidor rodando na porta 8000. Endereço: http://localhost:8000
