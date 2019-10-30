@@ -1,22 +1,31 @@
 # rits-carreiras
+Dados de acesso:
+Email: admin@admin
+Senha: admin123
 
-1. Clone o projeto:
-   git clone https://github.com/wilgnerpm/rits-carreiras.git
+Clone o projeto:
+git clone https://github.com/wilgnerpm/rits-carreiras.git
+</br>
+1- BANCO DE DADOS
+</br>
+1)Na pasta do projeto execute o comando para iniciar o postgres: 
+docker-compose up -d
+</br></br>
 
-2. Inicie docker com o postgres acessando a pasta docker e execute o comando:
-   docker-compose up -d
-
-3. Na pasta api e na pas api-botman:
-   3.1 Instale as dependencias, execute o comando:  
-   composer install
-   Atencao: O arquivo .env da api e api-botman esta configurada para se conectar com o postgres. Que foi iniciado no item anterior
-   3.2 Edite o .env da pasta api-botman e coloce no TELEGRAM_TOKEN=<Token do bot>, o token do bot criado.
-   3.3 iniciando o servicos de api e botman, execute o seguinte comando nas pastas api e api-botman:
-   php artisan serve <- Na pasta api;
-   php artisan serve --port=8001 <- Na pasta api-botman;
-
-4.Registrando a url da aplicação no Bot:
-Por fim, é necessário cadastrar a URL do webhook de seu Bot, conforme instruções do <a ref="https://core.telegram.org/bots/api#setwebhook">Telegram</a>.
-4.1 Instale o ngrok e execute o comando ngrok http 8001
-4.2 Pegue a sua URL pública da aplicação com a rota /botman/ (exemplo: https://a1234567.ngrok.io/botman/)
-4.3 juste na "URL final" https://api.telegram.org/bot<ACCESS TOKEN>/setWebhook?url=<URL PÚBLICA DA APLICAÇÃO>/botman/ (exemplo: https://api.telegram.org/bot123456789:Adfkj9jjdf9j9jdf9jRkjerkjMijijJUd11/setWebhook?url=https://a1234567.ngrok.io/botman/)
+2- API 
+</br>
+Em um novo terminal acesse a pasta api.
+</br>
+2.1) Na pasta api execute o comando: 
+</br>
+composer install && php artisan migrate  && php artisan db:seed && php artisan serve
+</br>
+O camando acima instala as dependecias, migra o db, cria o admin no banco de dados e inicia o servidor rodando na porta 8000. Endereco: http://localhost:8000
+</br></br>
+3- WEB </br>
+Em um novo terminal acesse a pasta web.</br>
+</br>
+2.1) Na pasta web execute o comando:</br>
+yarn && yarn start
+</br>
+O comando acima instala as dependencias do ReactJS e executa a aplicacao na porta 3000. Endereco: http://localhost:3000
