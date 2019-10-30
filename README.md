@@ -39,7 +39,7 @@ O comando testa a função que envia e-mail de 12h e 18h.
 </br>
 Em um novo terminal acesse a pasta web.
 </br>
-2.1) Na pasta web execute o comando:
+3.1) Na pasta web execute o comando:
 </br>
 yarn && yarn start
 </br>
