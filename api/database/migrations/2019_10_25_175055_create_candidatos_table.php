@@ -20,12 +20,12 @@ class CreateCandidatosTable extends Migration
             $table->string('nome_completo');
             $table->string('email');
             $table->string('telefone');
-            $table->string('resumo')->nullable($value = false);
+            $table->string('resumo')->nullable();
             $table->string('linkedin');
             $table->string('github');
             $table->string('nivel_ingles');
             $table->string('salario');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->string('classificado');
             $table->timestamps();
         });

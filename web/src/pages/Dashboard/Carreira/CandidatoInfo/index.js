@@ -24,10 +24,10 @@ callbackParent(candidatoAtualizado);
        </span></p>
        <div>
          <button className='btn btn-red' onClick={()=>handleClassificado(false)}>
-         NUDE
+         Não gostei
          </button>
          <button className='btn btn-green' onClick={()=>handleClassificado(true)}>
-        LIKE
+        Gostei
          </button>
        </div>
     </Container>
