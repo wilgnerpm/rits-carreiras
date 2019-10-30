@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
   mbstring \
   mcrypt \
   pcntl \
-  pdo_mysql \
   pdo_pgsql \
   pgsql \
   zip \

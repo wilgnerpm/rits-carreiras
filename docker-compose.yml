@@ -38,6 +38,7 @@ services:
   # Application service layer
   php:
     container_name: rits-backend-api
+    image: wilgnermp/php-laravel
     build:
       context: ./docker/php
     volumes:
