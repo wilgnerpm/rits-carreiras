@@ -11,12 +11,12 @@
    </br></br>
 
 Clone o projeto:</br>
-git clone https://github.com/wilgnerpm/rits-carreiras.git
+<b>git clone https://github.com/wilgnerpm/rits-carreiras.git</b>
 </br></br>
 1- BANCO DE DADOS</br>
 </br>
 1)Na pasta do projeto execute o comando para iniciar o postgres:
-docker-compose up -d
+<b>docker-compose up -d</b>
 </br></br>
 
 2- API
@@ -25,13 +25,13 @@ Em um novo terminal acesse a pasta api.
 </br>
 2.1) Na pasta api execute o comando:
 </br>
-composer install && php artisan migrate && php artisan db:seed && php artisan serve
+<b>composer install && php artisan migrate && php artisan db:seed && php artisan serve</b>
 </br>
 O comando acima instala as dependências, migra o db, cria o admin no banco de dados e inicia o servidor rodando na porta 8000. Endereço: http://localhost:8000
 </br>
 2.2) Para testa o envio de e-mail configure o smtp no arquivo .env e reinicie o servidor e em seguida execute o comando:
 </br>
-php artisan command:AvisoNovosCandidadatos
+<b>php artisan command:AvisoNovosCandidadatos</b>
 </br>
 O comando testa a função que envia e-mail de 12h e 18h.
 </br></br>
@@ -42,6 +42,6 @@ Em um novo terminal acesse a pasta web.
 </br>
 3.1) Na pasta web execute o comando:
 </br>
-yarn && yarn start
+<b>yarn && yarn start</b>
 </br>
 O comando acima instala as dependências do ReactJS e executa a aplicação na porta 3000. Endereço: http://localhost:3000
