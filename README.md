@@ -1,5 +1,6 @@
 # rits-carreiras
 1. Usei o Laravel com back-end e ReactJS com front-end.
+2. E o docker para o postgres.
 
 
 Dados de acesso:
