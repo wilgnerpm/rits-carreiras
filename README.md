@@ -3,7 +3,11 @@
 <p><samp>O desafio foi resolvido usando Laravel no back-end,&nbsp;ReactJs no front-end,&nbsp;Postgres como banco de dados SQL e Docker para cria&ccedil;&atilde;o dos containers. O&nbsp;layout do admin foi usuado o figma. Para o envio de e-mail foi criado um&nbsp;Task Scheduling, que realiza uma tarefa envio de mail as 12h e 18h</samp></p>
 
 <p><br />
-<samp><img alt="" height="152" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Home.png?raw=true" style="float:left" width="250" /><img alt="" height="214" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20%20-%20Vagas.png?raw=true" width="250" /><img alt="" height="126" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20-%20Vaga%20-%20Candidatos.png?raw=true" style="float:left" width="250" /></samp></p>
+<samp><img alt="" height="379" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Home.png?raw=true" style="float:left" width="624" /></samp></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
