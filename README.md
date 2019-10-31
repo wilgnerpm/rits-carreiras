@@ -13,17 +13,14 @@
 <strong>docker exec -it php-rits bash</strong></samp></p>
 
 <p><samp>5-No terminal do&nbsp;php-rits execute o comando abaixo, ele instala as dependecias, migra o banco de dados, cria a conta do administrador e ativa o crontab<br />
-<strong>1-&gt;&nbsp;cd /var/www/api &amp;&amp; composer install &amp;&amp; php artisan migrate &amp;&amp; php artisan db:seed&nbsp;<br />
-2-&gt;&nbsp;cd /var/www/api-botman<br />
-3-&gt; composer install<br />
-4-&gt; crontab /etc/cron.d/scheduler&nbsp;</strong></samp></p>
+<strong>1-&gt; Nas pastas <span style="color:#000080">api</span> e <span style="color:#000080">api-botman</span> execute: <span style="color:#000080">composer install&nbsp;</span><br />
+2-&gt;&nbsp;Na pasta <span style="color:#000080">api</span> execute: php artisan migrate &amp;&amp; php artisan db:seed&nbsp;<br />
+3-&gt; Execute o comando:&nbsp;crontab /etc/cron.d/scheduler</strong></samp></p>
 
 <p><samp><strong><span style="color:#000080"><a href="http://localhost:3000/">http://localhost:3000</a> &larr; WEB (BACK-FRONT)</span><br />
 <span style="color:#000080"><a href="http://localhost:8000">http://localhost:8000</a> &larr; API (BACK-END)</span><br />
 <span style="color:#000080"><a href="http://localhost:8001">http://localhost:8001</a> &larr; API-BOTMAN (BACK-END BOTMAN)</span><br />
 <span style="color:#000080"><a href="http://localhost:5432">http://localhost:5432</a> &larr; POSTGRES</span></strong></samp></p>
-
-<p>&nbsp;</p>
 
 <p><samp><strong>-Configurar SMTP</strong><br />
 O SMTP est&aacute;&nbsp;configurado com o&nbsp;</samp><a href="https://mailtrap.io/">https://mailtrap.io/</a>. Para configurar o SMTP edite o arquivo .env na pasta api.</p>
