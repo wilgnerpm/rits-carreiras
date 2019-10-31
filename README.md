@@ -1,9 +1,9 @@
 <h1><samp>#Desafio Rits</samp></h1>
 
-<p><samp>O desafio foi resolvido usando Laravel no back-end,&nbsp;ReactJs no front-end,&nbsp;Postgres como banco de dados SQL e Docker para cria&ccedil;&atilde;o dos containers. O&nbsp;layout do admin foi usuado o figma. Para o envio de e-mail foi criado um&nbsp;Task Scheduling, que realiza uma tarefa envio de mail as 12h e 18h<br />
-&nbsp;</samp></p>
+<p><samp>O desafio foi resolvido usando Laravel no back-end,&nbsp;ReactJs no front-end,&nbsp;Postgres como banco de dados SQL e Docker para cria&ccedil;&atilde;o dos containers. O&nbsp;layout do admin foi usuado o figma. Para o envio de e-mail foi criado um&nbsp;Task Scheduling, que realiza uma tarefa envio de mail as 12h e 18h</samp></p>
 
-<p><samp>1-Clone o projeto</samp><br />
+<p><br />
+<samp><img alt="" height="122" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Home.png?raw=true" style="float:left" width="200" /><img alt="" height="171" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20%20-%20Vagas.png?raw=true" width="200" /><img alt="" height="101" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20-%20Vaga%20-%20Candidatos.png?raw=true" style="float:left" width="200" />1-Clone o projeto</samp><br />
 <samp>2-Acesse a pasta web e instale as dep&ecirc;ncias:<br />
 <strong>npm install&nbsp;</strong><br />
 3-Volte para a pasta do projeto e execute o comando abaixo no terminal. Ele Criar os container e inicia as apis, web e postgres<br />
@@ -13,9 +13,9 @@
 <strong>docker exec -it php-rits bash</strong></samp></p>
 
 <p><samp>5-No terminal do&nbsp;php-rits execute o comando abaixo, ele instala as dependecias, migra o banco de dados, cria a conta do administrador e ativa o crontab.<br />
-<strong>1-&gt; Acesse o diretorio /var/www/, nas pastas <span style="color:#000080">api</span> e <span style="color:#000080">api-botman</span> execute: <span style="color:#000080">composer install&nbsp;</span><br />
-2-&gt;&nbsp;Na pasta <span style="color:#000080">api</span> execute: php artisan migrate &amp;&amp; php artisan db:seed&nbsp;<br />
-3-&gt; Execute o comando:&nbsp;crontab /etc/cron.d/scheduler</strong></samp></p>
+<strong>1-&gt; Acesse o diretorio /var/www/, nas pastas api e api-botman execute: <span style="color:#000080">composer install&nbsp;</span><br />
+2-&gt;&nbsp;Na pasta <span style="color:#000080">api</span> execute: <span style="color:#000080">php artisan migrate &amp;&amp; php artisan db:seed&nbsp;</span><br />
+3-&gt; Execute o comando:&nbsp;</strong></samp><span style="color:#000080"><strong>crontab /etc/cron.d/scheduler &amp;&amp; /etc/init.d/cron reload</strong></span></p>
 
 <p><samp><strong><span style="color:#000080"><a href="http://localhost:3000/">http://localhost:3000</a> &larr; WEB (BACK-FRONT)</span><br />
 <span style="color:#000080"><a href="http://localhost:8000">http://localhost:8000</a> &larr; API (BACK-END)</span><br />
