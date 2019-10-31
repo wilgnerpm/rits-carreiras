@@ -9,9 +9,9 @@
 <strong>docker-compose up -d</strong><br />
 <br />
 <strong><a href="http://localhost:3000/"><span style="color:#000080">http://localhost:3000</span></a><span style="color:#000080"> &larr; WEB (BACK-FRONT)</span><br />
-<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:8</span></a><span style="color:#000080">000 &larr; API (BACK-END)</span><br />
-<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:8</span></a><span style="color:#000080">001 &larr; API-BOTMAN (BACK-END BOTMAN)</span><br />
-<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:</span></a><span style="color:#000080">5432 &larr; POSTGRES</span></strong></samp></p>
+<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:8000</span></a><span style="color:#000080"> &larr; API (BACK-END)</span><br />
+<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:8001</span></a><span style="color:#000080"> &larr; API-BOTMAN (BACK-END BOTMAN)</span><br />
+<a href="http://localhost:3000/"><span style="color:#000080">http://localhost:5432</span></a><span style="color:#000080"> &larr; POSTGRES</span></strong></samp></p>
 
 <p><samp>3- Acesse o container&nbsp;php-rits<br />
 <strong>docker exec -it php-rits bash</strong></samp></p>
