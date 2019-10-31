@@ -12,8 +12,8 @@
 4- Acesse o container&nbsp;php-rits<br />
 <strong>docker exec -it php-rits bash</strong></samp></p>
 
-<p><samp>5-No terminal do&nbsp;php-rits execute o comando abaixo, ele instala as dependecias, migra o banco de dados, cria a conta do administrador e ativa o crontab<br />
-<strong>1-&gt; Nas pastas <span style="color:#000080">api</span> e <span style="color:#000080">api-botman</span> execute: <span style="color:#000080">composer install&nbsp;</span><br />
+<p><samp>5-No terminal do&nbsp;php-rits execute o comando abaixo, ele instala as dependecias, migra o banco de dados, cria a conta do administrador e ativa o crontab.<br />
+<strong>1-&gt; Acesse o diretorio /var/www/, nas pastas <span style="color:#000080">api</span> e <span style="color:#000080">api-botman</span> execute: <span style="color:#000080">composer install&nbsp;</span><br />
 2-&gt;&nbsp;Na pasta <span style="color:#000080">api</span> execute: php artisan migrate &amp;&amp; php artisan db:seed&nbsp;<br />
 3-&gt; Execute o comando:&nbsp;crontab /etc/cron.d/scheduler</strong></samp></p>
 
