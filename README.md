@@ -3,7 +3,11 @@
 <p><samp>O desafio foi resolvido usando Laravel no back-end,&nbsp;ReactJs no front-end,&nbsp;Postgres como banco de dados SQL e Docker para cria&ccedil;&atilde;o dos containers. O&nbsp;layout do admin foi usuado o figma. Para o envio de e-mail foi criado um&nbsp;Task Scheduling, que realiza uma tarefa envio de mail as 12h e 18h</samp></p>
 
 <p><br />
-<samp><img alt="" height="122" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Home.png?raw=true" style="float:left" width="200" /><img alt="" height="171" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20%20-%20Vagas.png?raw=true" width="200" /><img alt="" height="101" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20-%20Vaga%20-%20Candidatos.png?raw=true" style="float:left" width="200" />1-Clone o projeto</samp><br />
+<samp><img alt="" height="122" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Home.png?raw=true" style="float:left" width="200" /><img alt="" height="171" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20%20-%20Vagas.png?raw=true" width="200" /><img alt="" height="101" src="https://github.com/wilgnerpm/rits-carreiras/blob/master/Imagens%20demo/Admin%20-%20Vaga%20-%20Candidatos.png?raw=true" style="float:left" width="200" /></samp></p>
+
+<p>&nbsp;</p>
+
+<p><samp>1-Clone o projeto</samp><br />
 <samp>2-Acesse a pasta web e instale as dep&ecirc;ncias:<br />
 <strong>npm install&nbsp;</strong><br />
 3-Volte para a pasta do projeto e execute o comando abaixo no terminal. Ele Criar os container e inicia as apis, web e postgres<br />
