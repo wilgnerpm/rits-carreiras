@@ -1,0 +1,59 @@
+version: "3.5"
+services:
+  node:
+    build:
+      context: ./docker/node/
+    container_name: node-rits
+    volumes:
+      - "./web:/var/www"
+    ports:
+      - "3000:3000"
+    networks:
+      - production-network
+  #banco de dados
+  postgres:
+    container_name: postgres-rits
+    image: postgres
+    environment:
+      POSTGRES_DB: "rits_vagas"
+      POSTGRES_USER: "rits_vagas"
+      POSTGRES_PASSWORD: "rits_vagas"
+    volumes:
+      - "./docker/postgres/data/postgres:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    networks:
+      - production-network
+  php:
+    build:
+      context: ./docker/php/
+    container_name: php-rits
+    volumes:
+      - "./api:/var/www/api"
+      - "./api-botman:/var/www/api-botman"
+      - "./docker/php/scheduler:/etc/cron.d/scheduler"
+    expose:
+      - "9000"
+    networks:
+      - production-network
+
+  nginx:
+    container_name: nginx-rits
+    image: nginx
+    volumes:
+      - "./api:/var/www/api"
+      - "./api:/var/www/api-botman"
+      - ./docker/nginx/rits-api.conf:/etc/nginx/conf.d/rits-api.conf
+      - "./docker/nginx/rits-api.conf:/etc/nginx/conf.d/default.conf"
+      - ./docker/nginx/log:/var/log/nginx
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    depends_on:
+      - php
+    networks:
+      - production-network
+
+networks:
+  production-network:
+    driver: bridge
