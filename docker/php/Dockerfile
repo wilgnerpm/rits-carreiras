@@ -26,6 +26,6 @@ RUN apt-get -y install rsyslog cron
 RUN touch /var/log/schedule.log
 RUN chmod 0777 /var/log/schedule.log
 
-CMD ["cron", "-f"]
+
 
 EXPOSE 9000

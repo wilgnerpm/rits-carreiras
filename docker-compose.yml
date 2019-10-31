@@ -38,17 +38,19 @@ services:
       - production-network
 
   nginx:
-    container_name: nginx-rits
+    container_name: nginx-rits-2
     image: nginx
     volumes:
       - "./api:/var/www/api"
-      - "./api:/var/www/api-botman"
-      - ./docker/nginx/rits-api.conf:/etc/nginx/conf.d/rits-api.conf
-      - "./docker/nginx/rits-api.conf:/etc/nginx/conf.d/default.conf"
+      - "./api-botman:/var/www/api-botman"
+      - ./docker/nginx/sites:/etc/nginx/conf.d
       - ./docker/nginx/log:/var/log/nginx
     ports:
+      - "80:80"
       - "8000:8000"
       - "8001:8001"
+    links:
+      - php
     depends_on:
       - php
     networks:
